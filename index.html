@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang='de'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Online Tic-Tac-Toe</title>
+    <!-- Javascript und CSS Dateieinbindung -->
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <!-- Favicon & AppleTouch-->
+    <link rel='icon' sizes='16x16' href='./Icons/pb_200x200.ico'>
+    <link rel='apple-touch-icon' sizes='24x24' href='./Icons/pb_200x200.png' />
+    <!-- Metadaten  -->
+    <meta name='author' content='Stefan Bartl'>
+    <meta name='description' content='This is an online version of the well knowed game "Tic-Tac-Toe" ! You can play it against a friend or KI.'>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="github-page">
+    <meta property="og:url" content="https://stefanbartl.github.io/Tic-Tac-Toe/">
+    <meta property="og:title" content="Online Tic-Tac-Toe">
+    <meta property="og:description" content='This is an online version of the well knowed game "Tic-Tac-Toe" ! You can play it against a friend or KI.'>
+    <meta property="og:image" content="./Icons/Tictactoe.jpg" href="https://github.com/StefanBartl/Tic-Tac-Toe/tree/main/Icons/Tictactoe.jpg">
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+  <header id="header">
+  <p id="headerP">Welcome to an Online-Version of the well knowed game "Tic-Tac-Toe" !<br>
+     You can play it against a friend or KI.</p>
+  </header>
+  <div id="mainWrapper" class="ClassMainWrapper">
+  <div id="PlayerOneWrapperDiv" class="ClassPlayerWrapper">
+    <label for="PlayerOneName" id="PlayerOneLabel" class="ClassSidebar">Set Player 1 Name:<input type="text" name="PlayerOneName" placeholder="Player 1" value="Player 1" max="10" id="OneNameInput" class="ClassSidebar"></label>
+    <h3 class="ClassSidebar" id="selectGameModeText">Select Game Mode</h3>
+    <label for="Rounds" class="ClassSidebar">How many rounds?</label>
+    <select id="RoundsInput" name="Rounds" class="ClassSidebar">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3" selected>3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <label for="KI" class="ClassSidebar">Would you like to play against KI?</label>
+    <select name="KI" id="KIInput" class="ClassSidebar">
+      <option value="KI Easy">KI Easy</option>
+      <option value="KI Normal">KI Normal</option>
+      <option value="no">No</option>
+    </select>
+    <input type="button" id="StartButton" value="Start new Game" class="ClassSidebar">
+    <p id="gameInfoTextP" class="ClassSidebar" title="Click to pop-up Game-Info!"><span id="GameRulesText">Game Rules  </span><img src="./Icons/iconmonstr_com/info.svg" class="ClassSidebar" id="infoIcon" title="Click to pop-up Game-Info!"></p>
+  </div>
+  <div id="gameboardDiv" class="ClassGameboard">
+    <div id="Cell0" class="ClassGameboardCells"></div>
+    <div id="Cell1" class="ClassGameboardCells"></div>
+    <div id="Cell2" class="ClassGameboardCells"></div>
+    <div id="Cell3" class="ClassGameboardCells"></div>
+    <div id="Cell4" class="ClassGameboardCells"></div>
+    <div id="Cell5" class="ClassGameboardCells"></div>
+    <div id="Cell6" class="ClassGameboardCells"></div>
+    <div id="Cell7" class="ClassGameboardCells"></div>
+    <div id="Cell8" class="ClassGameboardCells"></div>
+  </div>
+    <div id="PlayerTwoWrapperDiv" class="ClassPlayerWrapper">
+    <label for="PlayerTwoName" id="PlayerTwoLabel" class="ClassSidebar">Set Player 2 Name:<input type="text" name="PlayerTwoName" placeholder="CPU Normal" value="CPU Normal" max="10" id="TwoNameInput" class="ClassSidebar"></label>
+  </div></div>
+  <script type='text/javascript' src='script.js'></script>
+</body>
+</html>
