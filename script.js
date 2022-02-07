@@ -197,7 +197,7 @@ else {false}
 }
 // KI Normal algorythmus
 function getKINormalValidCell(){
-console.log("KI Normal algorhytmus");
+//console.log("KI Normal algorhytmus");
 // Get actual state of the Gameboard
 let actualState = Gameboard.actualGameboard;
 // Get random exit cell
@@ -212,9 +212,9 @@ return random}}
 // First CORE Function for KI Normal is getRowsOnGameboard. It is important that KI attack before defend, otherwise KI wouldn't finish in some situations, but could 
 let attacking = getRowsOnGameboard("o");
 let defending = getRowsOnGameboard("x");
-if(attacking != false){console.log("Core 1, attacking with cell..." +  attacking);
+if(attacking != false){//console.log("Core 1, attacking with cell..." +  attacking);
 return attacking}
-if(defending != false){console.log("Core 1, defending with cell..." + defending);
+if(defending != false){//console.log("Core 1, defending with cell..." + defending);
 return defending}
 // This is second CORE Function of KI Normal is getPromisingPlacement. KI tries to place near to another KI placement but only, if it makes sense.
 // Get an  array with all placed o cell numbers 
@@ -227,12 +227,15 @@ let thirdMark = arrayPlacedCells[2];
 let calculatedFirst = getPromisingPlacement(firstMark);
 let calculatedSecond = getPromisingPlacement(secondMark);
 let calculatedThird = getPromisingPlacement(thirdMark);
-if(calculatedFirst != false){console.log("Core 2 calc 1: " + calculatedFirst); return calculatedFirst};
-if(calculatedSecond != false){console.log("Core 2 calc 2: " + calculatedSecond); return calculatedSecond};
-if(calculatedThird != false){console.log("Core 2 calc 3: " + calculatedThird); return calculatedThird};
+if(calculatedFirst != false){//console.log("Core 2 calc 1: " + calculatedFirst); 
+return calculatedFirst};
+if(calculatedSecond != false){//console.log("Core 2 calc 2: " + calculatedSecond); 
+return calculatedSecond};
+if(calculatedThird != false){//console.log("Core 2 calc 3: " + calculatedThird); 
+return calculatedThird};
 // If nothing was possible, return some valid random cell number
 let validRandomNumber = longRandomInt(10);
-console.log("Valid random number return: " + validRandomNumber);
+//console.log("Valid random number return: " + validRandomNumber);
 return validRandomNumber
 };
 
@@ -258,9 +261,7 @@ Gameboard.actualGameboard[playedCellNumber] = "x";
 let randomMarker = getRandomInt(3);
 marks.classList.add(`Xmarker${randomMarker}`);
 marks.classList.add("ClassMarkXPlayed");
-// Play audio effect
-let audioPlacement = new Audio("./Audio/freesound_com/OneHits/garuda1982__plop-sound-effect.wav");
-audioPlacement.play();
+
 // Proof if the game is won
 let winVal = WinValidation();
 if(winVal === true){
@@ -268,6 +269,9 @@ if(winVal === true){
   Gameboard.GameSettings.playerOneOnTurn = false;
   KI();
 }else {
+  // Play audio effect
+  let audioPlacement = new Audio("./Audio/freesound_com/OneHits/garuda1982__plop-sound-effect.wav");
+  audioPlacement.play();
   Gameboard.GameSettings.playerOneOnTurn = false;
   KI();
 }}}})}; 
@@ -613,7 +617,6 @@ const three = setTimeout(function(){
         audioPlacement.pause();
         audioPlacement.currentTime = 0;
         }, 4000);
-        if(isKIgame === "yes"){PlayKI()};
       }
 // 5) Helper functions
 // Helper function to reset the Gameboard
@@ -705,11 +708,11 @@ let minus = parseInt(a) - 1;
 let plus = parseInt(a) + 1;
 if(a != 0){
 if(actualState[minus] === "" && minus != 2|| actualState[minus] === "" &&  minus != 5){
-console.log("getPromisingPlacement returned minus!"); 
+//console.log("getPromisingPlacement returned minus!"); 
 return minus}
 else if(a != 8){
 if(actualState[plus] === "" && plus != 3 || actualState[minus] === "" &&  plus != 6){
-console.log("getPromisingPlacement returned plus!"); 
+//console.log("getPromisingPlacement returned plus!"); 
 return plus}
 } else return false
 } return false
