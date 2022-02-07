@@ -228,8 +228,8 @@ let calculatedFirst = getPromisingPlacement(firstMark);
 let calculatedSecond = getPromisingPlacement(secondMark);
 let calculatedThird = getPromisingPlacement(thirdMark);
 if(calculatedFirst != false){console.log("Core 2 calc 1: " + calculatedFirst); return calculatedFirst};
-if(calculatedSecond != false){console.log("Core 2 calc 2: " + calculatedFirst); return calculatedSecond};
-if(calculatedThird != false){console.log("Core 2 calc 3: " + calculatedFirst); return calculatedThird};
+if(calculatedSecond != false){console.log("Core 2 calc 2: " + calculatedSecond); return calculatedSecond};
+if(calculatedThird != false){console.log("Core 2 calc 3: " + calculatedThird); return calculatedThird};
 // If nothing was possible, return some valid random cell number
 let validRandomNumber = longRandomInt(10);
 console.log("Valid random number return: " + validRandomNumber);
@@ -700,16 +700,19 @@ function findCells(marker, gameboard){
 }
 // Helper functions for getting rows
 function getPromisingPlacement(a){
-  let actualState = Gameboard.actualGameboard;
-  let minus = a - 1;
-  let plus = a + 1;
-  if(a != 0){
-    if(actualState[minus] === "" && minus != 3 ||actualState[minus] === "" &&  minus != 6){console.log("getPromisingPlacement returned minus!"); return minus};
-  }
-  else if(a != 8){
-    if(actualState[plus] === "" && plus != 2 ||actualState[minus] === "" &&  plus != 5){console.log("getPromisingPlacement returned plus!"); return plus};
-  }
-  else return false
+let actualState = Gameboard.actualGameboard;
+let minus = parseInt(a) - 1;
+let plus = parseInt(a) + 1;
+if(a != 0){
+if(actualState[minus] === "" && minus != 2|| actualState[minus] === "" &&  minus != 5){
+console.log("getPromisingPlacement returned minus!"); 
+return minus}
+else if(a != 8){
+if(actualState[plus] === "" && plus != 3 || actualState[minus] === "" &&  plus != 6){
+console.log("getPromisingPlacement returned plus!"); 
+return plus}
+} else return false
+} return false
 }
 // KI Normal CORE Functionality
 function getRowsOnGameboard(a){
@@ -782,6 +785,22 @@ else if (actualState[4] === a && actualState[5] === a && actualState[3] === ""){
 else if (actualState[6] === a && actualState[7] === a && actualState[8] === ""){
   //console.log("5.vertical...");
   return 8
+}
+else if (actualState[6] === a && actualState[7] === a && actualState[8] === ""){
+  //console.log("5.vertical...");
+  return 8
+}
+else if (actualState[0] === a && actualState[6] === a && actualState[3] === ""){
+  //console.log("5.vertical...");
+  return 3
+}
+else if (actualState[1] === a && actualState[7] === a && actualState[4] === ""){
+  //console.log("5.vertical...");
+  return 4
+}
+else if (actualState[2] === a && actualState[8] === a && actualState[5] === ""){
+  //console.log("5.vertical...");
+  return 5
 }
 else if (actualState[7] === a && actualState[8] === a && actualState[6] === ""){
   //console.log("6.vertical...");
