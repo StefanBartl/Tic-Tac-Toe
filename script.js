@@ -197,7 +197,7 @@ else {false}
 }
 // KI Normal algorythmus
 function getKINormalValidCell(){
-// console.log("KI Normal algorhytmus");
+console.log("KI Normal algorhytmus");
 // Get actual state of the Gameboard
 let actualState = Gameboard.actualGameboard;
 // Get random exit cell
@@ -205,62 +205,36 @@ let randomExit = longRandomInt(10);
 // Proof for first placement and if, return random cell
 let firstPlacing = actualState.indexOf("o");
 if(firstPlacing === -1){
-// console.log("No "o" marker on gameboard, placing random number");
 let random = getRandomInt(9);
-if(actualState[random] === ""){return random}} 
-// If no first placement, invoke KI Normal algorythmus
-let normalCell = getKINormalCell();
-// Return cell number for placing
-if (getKINormalCell != false)return normalCell
-else
-// If nothing could return, return first free cell
-console.log("random exit" + randomExit);
-return randomExit }
-// Heart of the KI Normal algorythmus
-function getKINormalCell(){
-let actualState = Gameboard.actualGameboard;
-// First CORE Function fr KI Normal is getRowsOnGameboard
-let pretending = getRowsOnGameboard("x");
+if(actualState[random] === ""){
+console.log("No 'o' marker on gameboard, placing random first o number: " + random);
+return random}} 
+// First CORE Function for KI Normal is getRowsOnGameboard. It is important that KI attack before defend, otherwise KI wouldn't finish in some situations, but could 
 let attacking = getRowsOnGameboard("o");
-if(pretending != false){//console.log("pretending with cell..." + pretending);
-return pretending}
-if(attacking != false){//console.log("attacking with cell..." +  attacking);
+let defending = getRowsOnGameboard("x");
+if(attacking != false){console.log("Core 1, attacking with cell..." +  attacking);
 return attacking}
-// This is second CORE Function of KI Normal
+if(defending != false){console.log("Core 1, defending with cell..." + defending);
+return defending}
+// This is second CORE Function of KI Normal is getPromisingPlacement. KI tries to place near to another KI placement but only, if it makes sense.
 // Get an  array with all placed o cell numbers 
 let arrayPlacedCells = findCells("o", actualState);
 // Get the played marks out of the array
 let firstMark = arrayPlacedCells[0];
 let secondMark = arrayPlacedCells[1];
 let thirdMark = arrayPlacedCells[2];
-let fourthMark = arrayPlacedCells[3];
 /// Look if there are two "o" placed after another...
-let calculatedFirst = getPromisingRow(firstMark, secondMark);
-let calculatedSecond = getPromisingRow(secondMark, thirdMark);
-let calculatedThird = getPromisingRow(thirdMark, fourthMark);
-// If they are...
-let finisher = false;
-if(calculatedFirst === -1){finisher = finishRows(firstMark, secondMark)};
-if(calculatedSecond === -1){finisher = finishRows(secondMark, thirdMark)};
-if(calculatedThird === -1){finisher = finishRows(thirdMark, fourthMark)};
-if(finisher != false) return finisher
-// ...try fullfill the row downwards...
-function finishRows(firstCell, secondCell){
-  if (firstCell === 1 || firstCell === 4 || firstCell === 7){
-    let rowFinish = firstCell - 1;
-    console.log("downwards finish");
-    if(actualState[rowFinish] === "") return rowFinish; 
-  } // ...and upwards...
-    else if (firstCell === 0 || firstCell=== 3 || firstCell === 6){
-      let rowFinish = secondCell + 1;
-      console.log("upwards finish");
-      if(actualState[rowFinish] === "") return rowFinish;
-  }
- else return false
-}
+let calculatedFirst = getPromisingPlacement(firstMark);
+let calculatedSecond = getPromisingPlacement(secondMark);
+let calculatedThird = getPromisingPlacement(thirdMark);
+if(calculatedFirst != false){console.log("Core 2 calc 1: " + calculatedFirst); return calculatedFirst};
+if(calculatedSecond != false){console.log("Core 2 calc 2: " + calculatedFirst); return calculatedSecond};
+if(calculatedThird != false){console.log("Core 2 calc 3: " + calculatedFirst); return calculatedThird};
+// If nothing was possible, return some valid random cell number
 let validRandomNumber = longRandomInt(10);
-// If nothing was possible, return false
-return validRandomNumber;};
+console.log("Valid random number return: " + validRandomNumber);
+return validRandomNumber
+};
 
 
 // Function for player placement in KI Game
@@ -556,7 +530,7 @@ gameWonDiv.appendChild(congratulationsText);
 gameWonDiv.appendChild(winButton);
 } else {
   // Play audio effect
-let audioPlacement = new Audio("./Audio/freesound_com/florianreichelt__fail-sound-effect-accoustic-guitar.wav");
+let audioPlacement = new Audio("./Audio/freesound_com/harrietniamh__video-game-death-sound-effect.wav");
 audioPlacement.play();
 // Create Player lost against CPU Header
 const congratulationsHeader = document.createElement("h1");
@@ -725,9 +699,17 @@ function findCells(marker, gameboard){
   return results;
 }
 // Helper functions for getting rows
-function getPromisingRow(a, b){
-  let minusRow = a - b;
-  return minusRow
+function getPromisingPlacement(a){
+  let actualState = Gameboard.actualGameboard;
+  let minus = a - 1;
+  let plus = a + 1;
+  if(a != 0){
+    if(actualState[minus] === "" && minus != 3 ||actualState[minus] === "" &&  minus != 6){console.log("getPromisingPlacement returned minus!"); return minus};
+  }
+  else if(a != 8){
+    if(actualState[plus] === "" && plus != 2 ||actualState[minus] === "" &&  plus != 5){console.log("getPromisingPlacement returned plus!"); return plus};
+  }
+  else return false
 }
 // KI Normal CORE Functionality
 function getRowsOnGameboard(a){
