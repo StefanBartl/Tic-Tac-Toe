@@ -1,4 +1,4 @@
-# Project titel here
+# Tic-Tac-Toe
 # === Special credits to ===
 
 The Odin Project - the place where i used to learn Web Development: 
