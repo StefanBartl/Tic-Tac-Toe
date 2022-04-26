@@ -4,7 +4,7 @@
 ?                                      powered by
 !                                      Stefan Bartl
 !                        (WKDSteVIE / WKDMinerva)
-?                                            2022             
+?                                         Nov 2021             
 ?                  ________________________________                                                                                                                                                                                                  
 !                                     Table of content              
 ?                                       -) Starting screen DOM
@@ -190,7 +190,7 @@ if(winValidation === true){
 } else{
   // If it isn't won, player is on turn
   // Play audio effect
-  let audioPlacement = new Audio("./Audio/freesound_com/OneHits/notyermom__chirp-shirp.wav");
+  let audioPlacement = new Audio("./audio/freesound_com/OneHits/notyermom__chirp-shirp.wav");
   audioPlacement.play();
   Gameboard.GameSettings.playerOneOnTurn = true
   KIGamePlayersTurn()}
@@ -280,7 +280,7 @@ if(winVal === true){
   KI();
 }else {
   // Play audio effect
-  let audioPlacement = new Audio("./Audio/freesound_com/OneHits/garuda1982__plop-sound-effect.wav");
+  let audioPlacement = new Audio("./audio/freesound_com/OneHits/garuda1982__plop-sound-effect.wav");
   audioPlacement.play();
   Gameboard.GameSettings.playerOneOnTurn = false;
   KI();
@@ -315,7 +315,7 @@ Gameboard.GameSettings.playerOneOnTurn = false;
   let winVal = WinValidation();
   if(winVal === false){
     // Play audio effect
-    let audioPlacement = new Audio("./Audio/freesound_com/OneHits/garuda1982__plop-sound-effect.wav");
+    let audioPlacement = new Audio("./audio/freesound_com/OneHits/garuda1982__plop-sound-effect.wav");
     audioPlacement.play();
     turnDisplay(false);}
     if(winVal === true){
@@ -338,7 +338,7 @@ Gameboard.GameSettings.playerOneOnTurn = true;
 let winVal = WinValidation();
 if(winVal === false){
   // Play audio effect
-  let audioPlacement = new Audio("./Audio/freesound_com/OneHits/notyermom__chirp-shirp.wav");
+  let audioPlacement = new Audio("./audio/freesound_com/OneHits/notyermom__chirp-shirp.wav");
   audioPlacement.play();
   turnDisplay(true);}
   if(winVal === true){
@@ -473,7 +473,7 @@ let wins2 = Gameboard.GameSettings.playerTwoWins;
 // If it is a dráw....
 if(draw === "Draw"){
 // Play audio effect
-let audioPlacement = new Audio("./Audio/freesound_com/simon-lacelle__ba-da-dum.wav");
+let audioPlacement = new Audio("./audio/freesound_com/simon-lacelle__ba-da-dum.wav");
 audioPlacement.play();
 // Create Game Draw Header
 const congratulationsHeader = document.createElement("h1");
@@ -510,7 +510,7 @@ gameWonDiv.appendChild(congratulationsText);
 gameWonDiv.appendChild(winButton);
 } else if (Gameboard.GameSettings.KI === "no" || Gameboard.GameSettings.KI === "yes" && winner === Gameboard.GameSettings.PlayerOneName) {
 // Play audio effect
-let audioPlacement = new Audio("./Audio/freesound_com/klankbeeld__choir-sing-a-final-01.wav");
+let audioPlacement = new Audio("./audio/freesound_com/klankbeeld__choir-sing-a-final-01.wav");
 audioPlacement.play();
   // Create Game Won Header
 const congratulationsHeader = document.createElement("h1");
@@ -544,7 +544,7 @@ gameWonDiv.appendChild(congratulationsText);
 gameWonDiv.appendChild(winButton);
 } else {
   // Play audio effect
-let audioPlacement = new Audio("./Audio/freesound_com/harrietniamh__video-game-death-sound-effect.wav");
+let audioPlacement = new Audio("./audio/freesound_com/harrietniamh__video-game-death-sound-effect.wav");
 audioPlacement.play();
 // Create Player lost against CPU Header
 const congratulationsHeader = document.createElement("h1");
@@ -584,7 +584,7 @@ gameWonDiv.appendChild(winButton);
 // Function to show the countdown
 function Countdown(isKIgame){
   // Play audio effect
-let audioPlacement = new Audio("./Audio/JeopardyThemeSong .mp3");
+let audioPlacement = new Audio("./audio/JeopardyThemeSong .mp3");
 audioPlacement.play();
 // Manipulate DOM and get Countdown images
 header.classList.add("ClassHidden");

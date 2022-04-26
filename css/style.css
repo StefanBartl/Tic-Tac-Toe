@@ -4,7 +4,7 @@
 ?                                    powered by
 !                                     Stefan Bartl
 !                      (WKDSteVIE / WKDMinerva)
-?                                          2022                                                                                                                                                                        
+?                                      Nov  2022                                                                                                                                                                        
 ?                  ________________________________                                                                                                                                                                                                  
 !                                   Table of Content
 ?                                     -) CSS-Setup                                                                                                
@@ -39,14 +39,14 @@ todo
 
 @font-face {
     font-family: 'Fira Code';
-    src: url('./Fonts/Fira_Code_v6.2/woff2/FiraCode-Medium.woff2') format('woff2');
+    src: url('./fonts/Fira_Code_v6.2/woff2/FiraCode-Medium.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Orange Juice';
-    src: url('./Fonts/orange-juice/orange\ juice\ 2.0.ttf') format('ttf');
+    src: url('./fonts/orange-juice/orange\ juice\ 2.0.ttf') format('ttf');
     font-weight: 400;
     font-style: normal;
 }
@@ -419,14 +419,14 @@ header{
 
 /* #region Markers */
 
-.Omarker0{background-image: url(./Markers/Checked/check-svgrepo-com\(8\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
-.Omarker1{background-image: url(./Markers/Checked/check-svgrepo-com\ \(7\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
-.Omarker2{background-image: url(./Markers/Checked/check-svgrepo-com\ \(1\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
-.Omarker3{background-image: url(./Markers/Checked/check-tick-svgrepo-com\ \(1\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
-.Xmarker0{background-image: url(./Markers/X_es/x-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
-.Xmarker1{background-image: url(./Markers/X_es/x-circle-svgrepo-com\ \(1\).svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
-.Xmarker2{background-image: url(./Markers/X_es/x-men-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
-.Xmarker3{background-image: url(./Markers/X_es/handle-x-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}        
+.Omarker0{background-image: url(./markers/Checked/check-svgrepo-com\(8\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
+.Omarker1{background-image: url(./markers/Checked/check-svgrepo-com\ \(7\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
+.Omarker2{background-image: url(./markers/Checked/check-svgrepo-com\ \(1\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
+.Omarker3{background-image: url(./markers/Checked/check-tick-svgrepo-com\ \(1\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
+.Xmarker0{background-image: url(./markers/X_es/x-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
+.Xmarker1{background-image: url(./markers/X_es/x-circle-svgrepo-com\ \(1\).svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
+.Xmarker2{background-image: url(./markers/X_es/x-men-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
+.Xmarker3{background-image: url(./markers/X_es/handle-x-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}        
 
 /* #endregion */
 

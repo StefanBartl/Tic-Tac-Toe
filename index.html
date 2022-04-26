@@ -4,10 +4,10 @@
     <meta charset='UTF-8'>
     <title>Online Tic-Tac-Toe</title>
     <!-- Javascript und CSS Dateieinbindung -->
-    <link rel='stylesheet' type='text/css' href='style.css'>
+    <link rel='stylesheet' type='text/css' href='./css/style.css'>
     <!-- Favicon & AppleTouch-->
-    <link rel='icon' sizes='16x16' href='./Icons/pb_200x200.ico'>
-    <link rel='apple-touch-icon' sizes='24x24' href='./Icons/pb_200x200.png' />
+    <link rel='icon' sizes='16x16' href='./graphics/icons/pb_200x200.ico'>
+    <link rel='apple-touch-icon' sizes='24x24' href='./graphics/icons/pb_200x200.png' />
     <!-- Metadaten  -->
     <meta name='author' content='Stefan Bartl'>
     <meta name='description' content='This is an online version of the well knowed game "Tic-Tac-Toe" ! You can play it against a friend or KI.'>
@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://stefanbartl.github.io/Tic-Tac-Toe/">
     <meta property="og:title" content="Online Tic-Tac-Toe">
     <meta property="og:description" content='This is an online version of the well knowed game "Tic-Tac-Toe" ! You can play it against a friend or KI.'>
-    <meta property="og:image" content="./Icons/Tictactoe.jpg" href="https://github.com/StefanBartl/Tic-Tac-Toe/tree/main/Icons/Tictactoe.jpg">
+    <meta property="og:image" content="./graphics/icons/Tictactoe.jpg" href="https://github.com/StefanBartl/Tic-Tac-Toe/tree/main/Icons/Tictactoe.jpg">
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
@@ -49,7 +49,7 @@
       <option value="no">No</option>
     </select>
     <input type="button" id="StartButton" value="Start new Game" class="ClassSidebar">
-    <p id="gameInfoTextP" class="ClassSidebar" title="Click to pop-up Game-Info!"><span id="GameRulesText">Game Rules  </span><img src="./Icons/iconmonstr_com/info.svg" class="ClassSidebar" id="infoIcon" title="Click to pop-up Game-Info!"></p>
+    <p id="gameInfoTextP" class="ClassSidebar" title="Click to pop-up Game-Info!"><span id="GameRulesText">Game Rules  </span><img src="./graphics/icons/iconmonstr_com/info.svg" class="ClassSidebar" id="infoIcon" title="Click to pop-up Game-Info!"></p>
   </div>
   <div id="gameboardDiv" class="ClassGameboard">
     <div id="Cell0" class="ClassGameboardCells"></div>
@@ -65,6 +65,6 @@
     <div id="PlayerTwoWrapperDiv" class="ClassPlayerWrapper">
     <label for="PlayerTwoName" id="PlayerTwoLabel" class="ClassSidebar">Set Player 2 Name:<input type="text" name="PlayerTwoName" placeholder="CPU Normal" value="CPU Normal" max="10" id="TwoNameInput" class="ClassSidebar"></label>
   </div></div>
-  <script type='text/javascript' src='script.js'></script>
+  <script type='text/javascript' src='./javascript/script.js'></script>
 </body>
 </html>
