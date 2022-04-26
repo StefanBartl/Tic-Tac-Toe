@@ -1,4 +1,6 @@
 # Tic-Tac-Toe
+*Its important to know, that this was my very first project at all i wrote. Looking 6 months later on it, i would do many of this in other ways and much cleaner. Maybe anytime i debug it. :-)
+
 # === Special credits to ===
 
 The Odin Project - the place where i used to learn Web Development: 

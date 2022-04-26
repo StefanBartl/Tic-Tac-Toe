@@ -1,115 +1,424 @@
-                    /* Fonts */
-@font-face {
-font-family: 'Fira Code';
-src: url('./Fonts/Fira_Code_v6.2/woff2/FiraCode-Medium.woff2') format('woff2');
-font-weight: 400;
-font-style: normal;
-}
-@font-face {
-font-family: 'Orange Juice';
-src: url('./Fonts/orange-juice/orange\ juice\ 2.0.ttf') format('ttf');
-font-weight: 400;
-font-style: normal;
-}
-                    /* Wrappers, Containers... */ 
-body {
-color: snow;
-text-shadow: 1px 1px 1px black;
-font-family: "Fira Code", arial sans-serif;
-font-size: large;
-background-color: #1992d4;
+/* #region Table of Content */
+/*    
+!                      Tic-Tac-Toe Main-CSS-Stylesheet
+?                                    powered by
+!                                     Stefan Bartl
+!                      (WKDSteVIE / WKDMinerva)
+?                                          2022                                                                                                                                                                        
+?                  ________________________________                                                                                                                                                                                                  
+!                                   Table of Content
+?                                     -) CSS-Setup                                                                                                
+?                                     -) General-Design
+?                                     -) header | .navlist
+?                                     -) Pseudelements
+?                                     -) Transitions
+.                                        - header   
+?                                     -) Animations
+?                                     -) Media Queries
+.                                        - small devices
+?                                   10) Jobs to-do   
+todo                CSS - What a wonderful & tricky language !                                                                                                                                                                                                                                                                                                                                                                 */
+/*#endregion*/
 
+
+/* #region jobs to-do */
+
+/*
+todo    
+*/      
+
+/* #endregion */
+
+
+/*#region  CSS-Setup */
+
+/*? ===  font(s) === */
+
+/* futura: font-family: futura-pt,sans-serif; */
+@import url("https://use.typekit.net/izw3hmc.css");
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('./Fonts/Fira_Code_v6.2/woff2/FiraCode-Medium.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
 }
+
+@font-face {
+    font-family: 'Orange Juice';
+    src: url('./Fonts/orange-juice/orange\ juice\ 2.0.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* #region setup & themes  */
+
+:root {
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  --font-futura: futura-pt,sans-serif;
+  font-weight: 400;
+  font-style: normal; 
+
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+  --fs-600: 1.375rem;
+  --fs-700: 2rem;
+
+  /* ! test that out if it is working */
+  @media (min-width: 45em){
+  --fs-400: 1.125rem;
+  --fs-500: 1.375rem;
+  --fs-600: 2.75rem;
+  --fs-700: 4.125rem;
+  }
+
+  /* ==================  
+?    ===  Colour-Palette  ===
+.     ================== */
+  --wkd-black: rgb(0, 0, 0);
+  --wkd-darkgrey: rgb(29, 29, 29);
+  --wkd-midgrey: rgb(61, 61, 61);
+  --wkd-grey: rgb(107, 106, 106);
+  --wkd-lightgrey: rgb(178, 182, 160);
+  --wkd-white: rgb(255, 255, 255);
+  --wkd-red: rgb(255, 0, 0);
+  --wkd-green: rgb(82, 150, 34);
+  --wkd-intense-blue: rgb(0, 0, 250);
+  --wkd-pastell-blue: rgb(25, 145, 210);
+  --wkd-torquise: rgb(8, 253, 216);
+  --wkd-blueviolett: rgb(21, 23, 76);
+  --wkd-yellow: rgb(255, 255, 0);
+  --wkd-yellow-dark: rgb(255, 183, 0);
+  --wkd-orange: rgb(255, 102, 0); /* filter: brightness(0) saturate(100%) invert(44%) sepia(24%) saturate(4068%) hue-rotate(1deg) brightness(98%) contrast(106%); */
+  --wkd-grapefruit: rgb(239, 95, 87);
+  --wkd-pink: rgb(255, 0, 128);
+  --wkd-pinkviolett: rgb(255, 0, 255);  /* filter: brightness(0) saturate(100%) invert(19%) sepia(63%) saturate(4179%) hue-rotate(293deg) brightness(123%) contrast(136%); */
+  --wkd-darkviolett: rgb(102, 0, 102); 
+  --wkd-manner: rgb(235, 184, 173);
+}
+
+:root.theme_prime{
+
+/*? === design === */
+--main-colour: var(--wkd-pastell-blue);
+--counter-colour: var(--wkd-orange);
+--design-strokes-colour: var(--wkd-grey);
+--design-strokes-accent-colour: var(--wkd-pinkviolett);
+--shadows: var(--wkd-white);
+
+/*? === text === */
+--text-optimal-width: clamp(45ch, 50%, 75ch);
+--text-main-colour: var(--wkd-white);
+--link-hover-color: var(--wkd-red);
+}
+
+/* #endregion */
+
+/* #region resets */
+
+/* box-sizing */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+/* margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+picture {
+  margin: 0;
+}
+
+/* set up the body*/
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who turned them off*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* #endregion */
+
+/* #endregion */
+
+
+/* #region General-Design */
+
+body {
+  background-color: var(--main-colour);
+  color: var(--text-main-colour);
+  font-family: var(--font-futura);
+  color: snow;
+  text-shadow: 1px 1px 1px black;
+  font-family: "Fira Code", arial sans-serif;
+  font-size: large;
+}
+
 header{
-font-family: "Orange Juice", arial sans-serif;
-font-size: xx-large;
-min-width: 100%;
-max-height: 25vh;
-text-align: center;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-align-content: center;
-background-color: #1992d4;
+    display: flex;
+    font-size: var(--fs-700);
+    max-height: 25vh;
+    justify-content: center;
+    text-align: center;
 }
+
 .ClassMainWrapper{
-display: flex;
-min-height: 85vh;
-max-height: 100%;
-width: 100%;
-flex-wrap: wrap;
-gap: 2%;
-justify-content: center;
-text-align: center;
+    display: flex;
+    min-height: 85vh;
+    max-height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 2%;
+    justify-content: center;
+    text-align: center;
 }
+
 .ClassPlayerWrapper{
-display: flex;
-flex-wrap: wrap;
-background-color: #1992d4;
-gap: 2%;
-max-width: 12vw;
-min-width: 4vw;
-min-height: 100%;
-text-align: center;
-justify-content: center;
-align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--main-colour);
+    gap: 2%;
+    max-width: 12vw;
+    min-width: 4vw;
+    min-height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
 }
+
 .ClassSidebar{
-justify-content: center;
-text-align: center;
-align-content: center;
-min-width: 100%;
-margin: 3%;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    min-width: 100%;
+    margin: 3%;
 }
-                    /* Gameboard style */
+
+                /* Gameboard style */
 .ClassGameboard{
-width: 70%;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 3%;
-box-shadow: inset 0em 0em 2em black;
-border-radius: 5%;
-background-color: white;
-padding-top: 2%;
-margin-bottom: -1%;
-outline: solid 1px #1992d4;
-transition: all 2s ease-in-out;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3%;
+    box-shadow: inset 0em 0em 2em var(--wkd-black);
+    border-radius: 5%;
+    background-color: var(--wkd-white);
+    padding-top: 2%;
+    margin-bottom: -1%;
+    outline: solid 1px var(--main-colour);
+    transition: all 2s ease-in-out;
 }
+
 .ClassGameboard:hover{
-background-color: khaki;
-outline: solid 1px black;
+    background-color: khaki;
+    outline: solid 1px var(--wkd-black);
 }
+
 .ClassGameboardCells{
-height: 26%;
-width: 26%;
-margin: 10px;
-background-color: rgb(25, 146, 212, 20%);
-border-radius: 10%;
-box-shadow: 0em 2em 2em black;
-justify-content: center;
-align-content: center;
-text-align: center;
+    height: 26%;
+    width: 26%;
+    margin: 10px;
+    background-color: rgb(25, 146, 212, 20%);
+    border-radius: 10%;
+    box-shadow: 0em 2em 2em var(--wkd-black);
+    justify-content: center;
+    align-content: center;
+    text-align: center;
 }
+
 .ClassGameboardCells:hover{
-background-color: rgb(25, 146, 212, 20%);
-animation: 5s alternate infinite cellsAni ;
-}
-@keyframes cellsAni{
-from
-{
     background-color: rgb(25, 146, 212, 20%);
 }
-50% 
-{
-    background-color: darkmagenta;
+
+/* Backgrounds if cell is played*/
+.ClassMarkXPlayed{
+    transition: all 1s ease-in-out;
+    background-color: green;
 }
-to 
-{
-    background-color:firebrick;
+
+.ClassMarkOPlayed{
+    transition: all 1s ease-in-out;
+    background-color: red;
 }
+
+                /* Game won screen & Countdown */
+.ClassWon{
+    min-width: 100vw;
+    min-height: 100vh;
+    margin-top: -3%;
+    background-color: chocolate;
+    color: white;
+    padding-top: 15%;
+    text-align: center;
 }
-                    /* Markers for placement */
+
+.ClassWinButton {
+    height: 5vh;
+    width: 10vw;
+    margin-top: 10%;
+    transition: all 1s ease-in-out;
+}
+
+.ClassWinButton:hover {
+    height: 10vh;
+    width: 20vw;
+    background-color: #1992d4;
+    color: white;
+    text-shadow: 2em 2em 2em black;
+    font-size: x-large;
+}
+
+.Countdown {
+    width: 60vw;
+    height: 50vh;
+    border: dotted 5% yellow;
+    background-color: #1992d4;
+    color: white;
+    padding-top: 15%;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+#gameInfoTextP {
+    font-size: small;
+    text-align: left;
+}
+
+#GameRulesText:hover {
+    color: black;
+    cursor: help;
+}
+
+.ClassInfoboxIcon {
+    min-width: 15px;
+    min-height: 15px;
+    filter: invert(100%);
+}
+
+.ClassInfoboxIcon:hover {
+    filter: invert(0%);
+    cursor: help;
+}
+
+#KIInput {
+    color: black;
+    height: 20px;
+    outline: solid 1px #1992d4;
+    border-radius: 2%;
+    transition: all 1s ease-in-out;
+}   
+
+#KIInput:hover {
+    cursor: pointer;
+    color: black;
+    box-shadow: inset 0em 0em 1em black;
+}
+
+#RoundsInput {
+    color: black;
+    height: 20px;
+    outline: solid 1px #1992d4;
+    border-radius: 2%;
+    transition: all 1s ease-in-out;
+}
+
+#RoundsInput:hover {
+    cursor: pointer;
+    box-shadow: inset 0em 0em 1em black;
+    color: black;
+}
+
+#PlayerOneLabel {
+    height: 20%;
+}
+
+#PlayerTwoLabel {
+    height: 75%;
+}
+
+#OneNameInput {
+    color: black;
+    width: clamp(5px, 50%, 30px);
+    min-height: 50px;
+    outline: solid 1px #1992d4;
+    transition: all 1s ease-in-out;
+}
+
+#TwoNameInput {
+    color: black;
+    width: clamp(5px, 50%, 30px);
+    min-height: 50px;
+    outline: solid 1px #1992d4;
+    transition: all 1s ease-in-out;
+}
+
+#StartButton {
+    color: black;
+    height: 50px; 
+    border: solid 1px #1992d4;
+    border-radius: 2%;
+    transition: all 1s ease-in-out;
+}
+
+#StartButton:hover {
+    color: black;
+    cursor: pointer;
+    box-shadow: inset 0em 0em 3em black;
+}
+
+/* Classes for hide and show*/
+.ClassNotVisible{
+    visibility: hidden;
+}
+
+.ClassHidden{
+    display: none;
+}
+
+/* #endregion */
+
+
+/* #region Markers */
+
 .Omarker0{background-image: url(./Markers/Checked/check-svgrepo-com\(8\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
 .Omarker1{background-image: url(./Markers/Checked/check-svgrepo-com\ \(7\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
 .Omarker2{background-image: url(./Markers/Checked/check-svgrepo-com\ \(1\).svg);background-size: 50%;background-repeat: no-repeat;background-position: center;}
@@ -117,182 +426,68 @@ to
 .Xmarker0{background-image: url(./Markers/X_es/x-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
 .Xmarker1{background-image: url(./Markers/X_es/x-circle-svgrepo-com\ \(1\).svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
 .Xmarker2{background-image: url(./Markers/X_es/x-men-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
-.Xmarker3{background-image: url(./Markers/X_es/handle-x-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}
-                    /* Backgrounds if cell is played*/
-.ClassMarkXPlayed{
-transition: all 1s ease-in-out;
-background-color: green;
+.Xmarker3{background-image: url(./Markers/X_es/handle-x-svgrepo-com.svg);background-size: 70%;background-repeat: no-repeat;background-position: center;}        
+
+/* #endregion */
+
+
+/* #region Animations */
+
+.ClassGameboardCells:hover{
+    animation: 5s alternate infinite cellsAni ;
 }
-.ClassMarkOPlayed{
-transition: all 1s ease-in-out;
-background-color: red;
+@keyframes cellsAni{
+from {
+    background-color: rgb(25, 146, 212, 20%);
 }
-                    /* Classes for hide and show*/
-.ClassNotVisible{
-visibility: hidden;
+
+50% {
+    background-color: darkmagenta;
 }
-.ClassHidden{
-display: none;
+
+to {
+    background-color:firebrick;
 }
-                    /* Game won screen & Countdown */
+}
+
+
 .ClassWon{
-min-width: 100vw;
-min-height: 100vh;
-margin-top: -3%;
-background-color: chocolate;
-color: white;
-padding-top: 15%;
-text-align: center;
-animation: 5s alternate infinite winAni;
+    animation: 5s alternate infinite winAni;
 }
+
 @keyframes winAni{
-from
-{
+from {
     background-color: chocolate;
     color: white;
 }
-50%
-{
+50% {
     background-color: yellowgreen;
     color: black;
 }
-to
-{
+to {
     background-color:darkred;
     color: whitesmoke;
 }
 }
-.ClassWinButton
-{
-height: 5vh;
-width: 10vw;
-margin-top: 10%;
-transition: all 1s ease-in-out;
+
+
+h3 {
+    animation: 5s alternate infinite gameModeTextAni;
 }
-.ClassWinButton:hover
-{
-height: 10vh;
-width: 20vw;
-background-color: #1992d4;
-color: white;
-text-shadow: 2em 2em 2em black;
-font-size: x-large;
-}
-.Countdown
-{
-width: 60vw;
-height: 50vh;
-border: dotted 5% yellow;
-background-color: #1992d4;
-color: white;
-padding-top: 15%;
-text-align: center;
-justify-content: center;
-align-content: center;
-}
-/* Texts and Inputs */
-h3
-{
-animation: 5s alternate infinite gameModeTextAni;
-}
+
 @keyframes gameModeTextAni
 {
-from
-{
-    color: chocolate;
+from {
+color: chocolate;
 }
-50%
-{
-    color: yellowgreen;
+
+50% {
+color: yellowgreen;
 }
-to
-{
-    color:pink;
+
+to {
+color:pink;
 }
 }
-#gameInfoTextP
-{
-font-size:small;
-}
-#GameRulesText:hover
-{
-color: black;
-cursor: help;
-}
-.ClassInfoboxIcon
-{
-min-width: 15px;
-min-height: 15px;
-filter: invert(100%);
-}
-.ClassInfoboxIcon:hover
-{
-filter: invert(0%);
-cursor: help;
-}
-#KIInput
-{
-color: black;
-height: 20px;
-outline: solid 1px #1992d4;
-border-radius: 2%;
-transition: all 1s ease-in-out;
-}
-#KIInput:hover
-{
-cursor: pointer;
-color: black;
-box-shadow: inset 0em 0em 1em black;
-}
-#RoundsInput
-{
-color: black;
-height: 20px;
-outline: solid 1px #1992d4;
-border-radius: 2%;
-transition: all 1s ease-in-out;
-}
-#RoundsInput:hover
-{
-cursor: pointer;
-box-shadow: inset 0em 0em 1em black;
-color: black;
-}
-#PlayerOneLabel
-{
-height: 20%;
-}
-#PlayerTwoLabel
-{
-height: 75%;
-}
-#OneNameInput
-{
-color: black;
-width: clamp(5px, 50%, 30px);
-min-height: 50px;
-outline: solid 1px #1992d4;
-transition: all 1s ease-in-out;
-}
-#TwoNameInput
-{
-color: black;
-width: clamp(5px, 50%, 30px);
-min-height: 50px;
-outline: solid 1px #1992d4;
-transition: all 1s ease-in-out;
-}
-#StartButton
-{
-color: black;
-height: 50px; 
-border: solid 1px #1992d4;
-border-radius: 2%;
-transition: all 1s ease-in-out;
-}
-#StartButton:hover
-{
-color: black;
-cursor: pointer;
-box-shadow: inset 0em 0em 3em black;
-}
+
+/* #endregion */

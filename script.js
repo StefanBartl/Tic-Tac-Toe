@@ -1,13 +1,23 @@
-//    Table of content:
-// 1) Starting screen DOM
-//    
-// 2) Starting Game functions
-//    
-// 3) Main Game flow functions
-//
-// 4) Showing Round and Game Win/Draw/Game_End functions
-//
-// 5) Helper functions
+//#region Table of Content
+/*
+!                         Project X Main-Javascript-File
+?                                      powered by
+!                                      Stefan Bartl
+!                        (WKDSteVIE / WKDMinerva)
+?                                            2022             
+?                  ________________________________                                                                                                                                                                                                  
+!                                     Table of content              
+?                                       -) Starting screen DOM
+?                                       -) Starting Game functions
+?                                       -) Main Game flow functions
+?                                       -) Showing Round and Game Win/Draw/Game_End functions
+?                                       -) Helper functions
+todo                 Javascript - what a wonderful language!
+*/
+//#endregion
+
+
+//#endregion
 
 // 1) Starting screen DOM
 // Gameoboard Object
